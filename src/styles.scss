@@ -1,0 +1,35 @@
+$basePadding: 0px;
+$baseMargin: 0px;
+$baseFontColor: white;
+$baseWidth: auto;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+body {
+  margin: $baseMargin;
+  padding: $basePadding;
+  background-color: dodgerblue;
+
+}
+
+header {
+  color: $baseFontColor;
+  $baseWidth: auto;
+}
+
+main {
+  margin: $baseMargin;
+  padding: $basePadding;
+  $baseWidth: auto;
+}
+
+#homework-section {
+  width: auto;
+  background: #fcf8e3;
+}
+
+.homework {
+  border: solid 4px;
+  border-radius: 4px;
+  margin: 2.5px;
+}
