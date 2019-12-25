@@ -1,3 +1,4 @@
+// eslint-disable-next-line rules
 let age;
 const MALE = 'Мужской';
 const FEMALE = 'Женский';
@@ -23,6 +24,7 @@ function getNumAndWord(num, wrd1, wrd2, wrd3) {
   }
   const dd = num % 100;
   const d = dd % 10;
+  // eslint-disable-next-line default-case
   switch (dd) {
     case 11:
     case 12:
@@ -42,7 +44,7 @@ function getNumAndWord(num, wrd1, wrd2, wrd3) {
   }
 }
 
-function getYesOrNoOrOtherAnswer(value, trueWord = 'Да', falseWord = 'Нет') {
+function getYesOrNoOrOtherAnswer(value, trueWord = 'Yes', falseWord = 'No') {
   return value ? trueWord : falseWord;
 }
 
@@ -61,6 +63,7 @@ if (age !== NO_DATA && !checkAge(age)) {
   }
 }
 
+// eslint-disable-next-line no-restricted-globals
 const SEX = confirm('Ваш пол мужской?');
 
 

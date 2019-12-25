@@ -1,4 +1,5 @@
-function getNumWord(num, word1, word2, word5) {
+// eslint-disable-next-line rules
+/* function getNumWord(num, word1, word2, word5) {
   let dd = num % 100;
 
   if ((dd >= 11) && (dd <= 19)) {
@@ -15,12 +16,13 @@ function getNumWord(num, word1, word2, word5) {
     return word2;
   }
   return word5;
-}
+} */
 
 function getNumWord(num, word1, word2, word5) {
-  let oneDigit = num % 10;
-  let dd = num % 100;
+  const oneDigit = num % 10;
+  const dd = num % 100;
 
+  // eslint-disable-next-line default-case
   switch (dd) {
     case 11:
     case 12:
@@ -41,12 +43,15 @@ function getNumWord(num, word1, word2, word5) {
   }
 }
 
+/*
 function makeTest() {
-  let applesCount = parseInt(prompt('Сколько яблок?'));
+  // eslint-disable-next-line radix
+  const applesCount = parseInt(prompt('Сколько яблок?'));
   if (applesCount) {
-    alert('У вас ' + applesCount + ' ' + getNumWord(applesCount,
-        'яблоко', 'яблока', 'яблок'));
+    alert(`У вас ${applesCount} ${getNumWord(applesCount,
+      'яблоко', 'яблока', 'яблок')}`);
   }
 }
 
 makeTest();
+*/
