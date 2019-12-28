@@ -1,8 +1,9 @@
+// eslint-disable-next-line rules
 function getMultiplyTable() {
   const { body } = document;
   const table = document.createElement('table');
   let tr; let td; let
-      tdInner = '';
+    tdInner = '';
 
   table.style.width = '100%';
   table.setAttribute('border', '1');
