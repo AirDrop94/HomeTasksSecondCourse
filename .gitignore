@@ -1,0 +1,11 @@
+$cat .gitignore
+
+# Node Files #
+/node_modules/
+# IDEs
+.idea/*
+.vscode
+*.swp
+*.xml
+_windows
+codestyles
