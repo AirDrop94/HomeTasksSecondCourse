@@ -1,5 +1,6 @@
 // eslint-disable-next-line rules
 
+
 const Notes = ((function () {
   const OBJECT_NAME = 'notes';
   // eslint-disable-next-line no-unused-vars
