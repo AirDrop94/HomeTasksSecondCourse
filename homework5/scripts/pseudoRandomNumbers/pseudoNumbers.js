@@ -1,5 +1,6 @@
 function generator() {
-  const Error = function (msg) {
+  // eslint-disable-next-line no-global-assign
+  Error = function (msg) {
     this.msg = msg;
   };
 

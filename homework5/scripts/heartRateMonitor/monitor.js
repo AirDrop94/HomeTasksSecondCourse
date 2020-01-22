@@ -2,6 +2,7 @@ const alertMsg = document.querySelector('#msgWindow');
 const msgRender = document.querySelector('#msgAlert');
 const inputBeats = document.querySelector('#beatsPerSeconds');
 const startMonitor = document.querySelector('#startMonitor');
+const resetMonitor = document.querySelector('#resetMonitor');
 const sendBeats = document.querySelector('#sendBeats');
 
 const monitorMessages = {
@@ -12,41 +13,57 @@ const monitorMessages = {
   val2: 15,
 };
 
-function Monitor(elementRender, message, limit) {
-  const elem = elementRender;
-  const text = message;
-  let value = limit;
-  let intervalId = null;
+function Monitor(elem, text, value, done) {
+  this.elem = elem;
+  this.text = text;
+  this.value = value;
+  this.done = done;
+  // eslint-disable-next-line no-unused-expressions
+  this.intervalId;
 
-  this.start = function () {
-    intervalId = setInterval(() => {
-      if (value === 0) {
-        clearInterval(intervalId);
+  // eslint-disable-next-line func-names
+  this.start = () => {
+    // eslint-disable-next-line no-undef
+    this.intervalId = setInterval(() => {
+      this.value -= 1;
+      this.elem.innerHTML = this.text + this.value;
+      if (this.value === 0) {
+        this.pause();
+        // eslint-disable-next-line no-unused-expressions
+        this.done ? this.done() : null;
       }
       alertMsg.classList.add('d-block');
-      elem.innerHTML = text + value;
-      value -= 1;
     }, 1000);
+  };
+
+  this.pause = () => {
+    clearInterval(this.intervalId);
   };
 
   this.showMsg = function () {
     setTimeout(() => {
-      elem.innerHTML = monitorMessages.msg3;
+      this.elem.innerHTML = monitorMessages.msg3;
     }, ((monitorMessages.val1) * 1000) + ((monitorMessages.val2) * 1000) + 2000);
   };
 
   this.showResult = function () {
     const res = inputBeats.value;
     setTimeout(() => {
-      elem.innerHTML = `Your pulse makes: ${(res) * 4} bets per minute`;
+      this.elem.innerHTML = `Your pulse makes: ${(res) * 4} bets per minute`;
     }, 1000);
+  };
+
+  this.reset = () => {
+    this.elem.innerHTML = '';
+    inputBeats.value = '';
   };
 }
 
 const monitor = new Monitor(alertMsg, monitorMessages.msg1, monitorMessages.val1);
 const monitor2 = new Monitor(alertMsg, monitorMessages.msg2, monitorMessages.val2);
 
-startMonitor.addEventListener('click', () => {
+startMonitor.addEventListener('click', (event) => {
+  event.preventDefault();
   monitor.start();
   setTimeout(() => {
     monitor2.start();
@@ -54,6 +71,12 @@ startMonitor.addEventListener('click', () => {
   monitor2.showMsg();
 });
 
-sendBeats.addEventListener('click', () => {
+sendBeats.addEventListener('click', (event) => {
+  event.preventDefault();
   monitor2.showResult();
+});
+
+resetMonitor.addEventListener('click', (event) => {
+  event.preventDefault();
+  monitor2.reset();
 });
