@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles/style.css">
+  <title>Homework 6</title>
+</head>
+<body>
+<div class="container offset-4">
+  <h1>Photos</h1>
+  <div id="form" class="form ">
+    <div class="justify-content-lg-center" style="max-width: 500px;">
+      <div class="form-group">
+        <label for="">Photo name</label>
+        <input id="title" type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="">Name author</label>
+        <input id="author" type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="">Choose photo</label>
+        <input id="image" type='file' class="form-control-file" >
+      </div>
+      <div class="form-group">
+        <label for="">Description</label>
+        <textarea id="descriptionText" class="form-control" rows="6"></textarea>
+      </div>
+      <button id="btn_add" type="submit" class="btn btn-primary btn-lg btn-block">Add</button>
+      <button id="btn_change" type="submit" class="btn btn-warning btn-lg btn-block disp-n">Change</button>
+  </div>
+</div>
+
+<script src="scripts/rest.js"></script>
+<script src="scripts/app.js"></script>
+<script src="scripts/ui.js"></script>
+</body>
+</html>
