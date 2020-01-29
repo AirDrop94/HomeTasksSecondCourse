@@ -1,5 +1,5 @@
+// eslint-disable-next-line rules
 const alertMsg = document.querySelector('#msgWindow');
-const msgRender = document.querySelector('#msgAlert');
 const inputBeats = document.querySelector('#beatsPerSeconds');
 const startMonitor = document.querySelector('#startMonitor');
 const resetMonitor = document.querySelector('#resetMonitor');
@@ -40,43 +40,35 @@ function Monitor(elem, text, value, done) {
     clearInterval(this.intervalId);
   };
 
-  this.showMsg = function () {
-    setTimeout(() => {
-      this.elem.innerHTML = monitorMessages.msg3;
-    }, ((monitorMessages.val1) * 1000) + ((monitorMessages.val2) * 1000) + 2000);
-  };
-
-  this.showResult = function () {
-    const res = inputBeats.value;
-    setTimeout(() => {
-      this.elem.innerHTML = `Your pulse makes: ${(res) * 4} bets per minute`;
-    }, 1000);
-  };
-
-  this.reset = () => {
-    this.elem.innerHTML = '';
-    inputBeats.value = '';
+  // eslint-disable-next-line no-shadow
+  this.reset = (elem, value, done) => {
+    this.elem = elem;
+    this.value = value;
+    this.done = done;
   };
 }
 
-const monitor = new Monitor(alertMsg, monitorMessages.msg1, monitorMessages.val1);
-const monitor2 = new Monitor(alertMsg, monitorMessages.msg2, monitorMessages.val2);
+const doneFn2 = () => {
+  alertMsg.innerHTML = monitorMessages.msg3;
+  sendBeats.addEventListener('click', () => {
+    const res = inputBeats.value;
+    alertMsg.innerHTML = `Your pulse makes: ${(res) * 4} beats per minute`;
+  });
+}
 
-startMonitor.addEventListener('click', (event) => {
-  event.preventDefault();
+const doneFn = () => {
+  const monitor2 = new Monitor(alertMsg, monitorMessages.msg2, monitorMessages.val2, doneFn2);
+  monitor2.start();
+};
+
+startMonitor.addEventListener('click', () => {
+  const monitor = new Monitor(alertMsg, monitorMessages.msg1, monitorMessages.val1, doneFn);
   monitor.start();
-  setTimeout(() => {
-    monitor2.start();
-  }, (monitorMessages.val1) * 1000);
-  monitor2.showMsg();
 });
 
-sendBeats.addEventListener('click', (event) => {
-  event.preventDefault();
-  monitor2.showResult();
-});
 
 resetMonitor.addEventListener('click', (event) => {
   event.preventDefault();
-  monitor2.reset();
+  alertMsg.innerHTML = '';
+  inputBeats.value = '';
 });
