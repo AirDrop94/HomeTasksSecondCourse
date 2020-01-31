@@ -1,73 +1,43 @@
-function Rest(api, location) {
+function Rest() {
   this.xhr = new XMLHttpRequest();
-  this.API = api;
-  this.location = location;
 }
 
-Rest.prototype.getAllPosts = function () {
-  this.xhr.open('GET', `${this.API}/${this.location}`);
+Rest.prototype.get = function (url, fnOnLoad, route = '/product') {
+  this.xhr.open('GET', url + route);
   this.xhr.send();
+
   this.xhr.responseType = 'json';
 
-  return new Promise(((resolve) => {
-    this.xhr.onload = () => {
-      if (this.xhr.status === 200) {
-        resolve(this.xhr.response);
-      }
-    };
-  }));
+  this.xhr.onload = () => {
+    fnOnLoad(this, 'get');
+  };
 };
 
-Rest.prototype.post = function (data) {
-  this.xhr.open('POST', `${this.API}/${this.location}`);
+Rest.prototype.post = function (data, url, fnOnLoad, route = '/product') {
+  this.xhr.open('POST', url + route);
   this.xhr.setRequestHeader('Content-Type', 'application/json');
   this.xhr.send(JSON.stringify(data));
 
-  return new Promise(((resolve) => {
-    this.xhr.onload = () => {
-      if (this.xhr.status === 201) {
-        resolve(this.xhr.response);
-      }
-    };
-  }));
+  this.xhr.onload = () => {
+    fnOnLoad(this, 'post');
+  };
 };
 
-Rest.prototype.delete = function (id) {
-  this.xhr.open('DELETE', `${this.API}/${this.location}/${id}`);
-  this.xhr.send();
-
-  return new Promise(((resolve) => {
-    this.xhr.onload = () => {
-      resolve(this.xhr.response);
-    };
-  }));
-};
-
-Rest.prototype.edit = function (id, data) {
-  this.xhr.open('PUT', `${this.API}/${this.location}/${id}`);
-  this.setRequestHeader('Content-Type', 'application/json');
+Rest.prototype.put = function (id, data, url, fnOnLoad, route = '/product') {
+  this.xhr.open('PUT', `${url + route}/${id}`);
+  this.xhr.setRequestHeader('Content-Type', 'application/json');
   this.xhr.send(JSON.stringify(data));
 
-  return new Promise(((resolve) => {
-    this.xhr.onload = () => {
-      resolve(this.xhr.response);
-    };
-  }));
+  this.xhr.onload = () => {
+    fnOnLoad(this, 'put');
+  };
 };
 
-Rest.prototype.getPost = function (id) {
-  this.xhr.open('PUT', `${this.API}/${this.location}/${id}`);
-  this.xhr.responseType = 'json';
+Rest.prototype.delete = function (id, url, fnOnLoad, route = '/product') {
+  this.xhr.open('DELETE', `${url + route}/${id}`);
   this.xhr.send();
 
-  return new Promise(((resolve) => {
-    this.xhr.onload = () => {
-      if (this.xhr.status === 200) {
-        resolve(this.xhr.response);
-      }
-      if (this.xhr.status === 404){
-        resolve(console.log('error 404'));
-      }
-    };
-  }));
+  this.xhr.onload = () => {
+    fnOnLoad(this, 'delete');
+  };
 };

@@ -9,7 +9,7 @@
     "css:watch": "npm run css && node-sass src/styles.scss -wo dist",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "./node_modules/.bin/http-server ./public_html -a localhost -p 8082 -c-1",
-    "start-json": "./node_modules/.bin/json-server --watch ./public_html/db.json --port 3006"
+    "start-json": "./node_modules/.bin/json-server --watch public_html/db.json --port 3006"
   },
   "author": "",
   "license": "ISC",
