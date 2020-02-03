@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+  <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap"
+      rel="stylesheet">
+  <link href="styles/style.css" rel="stylesheet">
+  <title>Heart rate</title>
+</head>
+<body>
+<h1>Heart rate monitor</h1>
+<div class="form-group offset-3 col-md-4">
+  <div class="alert alert-info m-4 d-none" role="alert" id="alertWindow">
+    <h3 id="msgAlert"></h3>
+  </div>
+  <input type="text" class="form-control" placeholder="Enter count of beats" id="beatsPerSeconds" required>
+  <button class="btn" type="button" id="startMonitor">Start monitor</button>
+  <br/>
+  <button class="btn" type="button" id="sendBeats">Send</button>
+  <br/>
+  <button class="btn" type="button" id="resetMonitor">Reset monitor</button>
+</div>
+<script src="scripts/app.js"></script>
+</body>
+</html>

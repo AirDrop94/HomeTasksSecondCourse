@@ -1,89 +1,91 @@
-/* eslint-disable no-alert */
-/* eslint-disable func-names */
+// eslint-disable-next-line rules
 function UI() {
-  this.content = document.querySelector('#content');
-  this.title = document.getElementById('title');
-  this.author = document.getElementById('author');
-  this.descr = document.getElementById('descr');
-  this.image = document.getElementById('image');
-  this.dtnChange = document.getElementById('btn_change');
-  this.btnAdd = document.getElementById('btn_add');
+  this.allPost = document.getElementById('allPost');
+  this.idPostButton = document.getElementById('postLoadById');
+  this.addNewPost = document.getElementById('addNewPost');
+  this.btnDeletePost = document.getElementById('deletePostByIdButton');
+  this.btnEditPost = document.getElementById('editPostByIdButton');
+  this.postContainer = document.getElementById('postContainer');
+  this.titlePost = document.getElementById('titlePost');
+  this.authorPost = document.getElementById('authorPost');
+  this.textPost = document.getElementById('textPost');
+  this.editPost = document.getElementById('postTitleToEdit');
+  this.editAuthorPost = document.getElementById('postAuthorToEdit');
+  this.editTextPost = document.getElementById('postTextToEdit');
+  this.postIdToGet = document.getElementById('postIdToGet');
+  this.postIdToDel = document.getElementById('postIdToDel');
+  this.postIdToEdit = document.getElementById('postIdToEdit');
 }
 
-UI.prototype.alertMsg = function () {
-  alert('Пожалуйста заполните все поля!');
+UI.prototype.inputIdToGet = function () {
+  return this.postIdToGet.value;
 };
 
-UI.prototype.returnedObj = function (t, a, d, i = '') {
+UI.prototype.inputIdToDel = function () {
+  return this.postIdToDel.value;
+};
+
+UI.prototype.inputIdToEdit = function () {
+  return this.postIdToEdit.value;
+};
+
+UI.prototype.clearInputIdToGet = function () {
+  this.postIdToGet.value = '';
+};
+
+UI.prototype.clearInputIdToDel = function () {
+  this.postIdToDel.value = '';
+};
+
+UI.prototype.inputData = function () {
   return {
-    title: t,
-    author: a,
-    descr: d,
-    img: i,
+    title: this.titlePost.value,
+    author: this.authorPost.value,
+    text: this.textPost.value,
   };
 };
 
-UI.prototype.dataUi = function () {
-  const title = this.title.value;
-  const author = this.author.value;
-  const descr = this.descr.value;
-  const img = this.image;
-
-  if (title && author && descr) {
-    return new Promise((resolve) => {
-      if (img.files[0]) {
-        const FR = new FileReader();
-        FR.addEventListener('load', (event) => {
-          const b64 = event.target.result;
-          resolve(this.returnedObj(title, author, descr, b64));
-        });
-        FR.readAsDataURL(img.files[0]);
-        return true;
-      }
-      if (!img.files[0] && !img.defaultValue) {
-        resolve(this.returnedObj(title, author, descr));
-        return true;
-      }
-      resolve(this.returnedObj(title, author, descr, img.defaultValue));
-      return true;
-    });
-  }
-  this.alertMsg();
-  return false;
+UI.prototype.inputDataToEdit = function () {
+  return {
+    title: this.editPost.value,
+    author: this.editAuthorPost.value,
+    text: this.editTextPost.value,
+  };
 };
 
-UI.prototype.inputVal = function (t = '', a = '', d = '', i = '') {
-  this.title.value = t;
-  this.author.value = a;
-  this.descr.value = d;
-  this.image.defaultValue = i;
-  this.image.value = '';
+UI.prototype.clearInputData = function () {
+  this.titlePost.value = '';
+  this.authorPost.value = '';
+  this.textPost.value = '';
 };
 
-UI.prototype.renderResponse = function (res) {
-  this.content.innerHTML = '';
-  res.forEach((el) => {
-    if (el.img === '') {
-      el.img = './img/no-photo.png';
-    }
+UI.prototype.clearInputDataToEdit = function () {
+  this.postIdToEdit.value = '';
+  this.editPost.value = '';
+  this.editAuthorPost.value = '';
+  this.editTextPost.value = '';
+};
+
+UI.prototype.renderResponses = function (res) {
+  res.forEach(((post) => {
     const div = document.createElement('div');
-    const template = `<div id="${el.id}" class="card mb-3" style="max-width: auto;">
-      <div class="row no-gutters min-h">
-        <div class="col-md-2 pos-rel">
-          <img src="${el.img}" class="img pos-abs_c" alt="...">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h4 class="card-title">${el.title}</h4>
-            <h5>${el.author}</h5>
-            <p class="card-text">${el.descr}</p>
-            <button id="btn-mod" type="button" class="btn btn-secondary btn-sm">Изменить</button>
-            <button id="btn-del" type="button" class="btn btn-danger btn-sm">Удалить</button>
-          </div>
-        </div>
-      </div>
-    </div>`;
-    div.innerHTML = template;
-    this.content.append(div);
-  });
+    div.innerHTML = `<div class="row" id="${post.id}">
+        <h4 class="col-12 mt-5 mb-3">${post.title}</h4>
+        <h5 class="mb-3 font-italic col-12">${post.author}</h5>
+        <p class="col-12">${post.text}</p>
+        <p class="col-12" style="border-bottom: 2px solid black">Id - ${post.id}</p>
+      </div>`;
+    this.postContainer.append(div);
+  }));
+};
+
+UI.prototype.renderResponse = function (post) {
+  const div = document.createElement('div');
+  div.innerHTML = `<div class="row" id="${post.id}">
+        <h4 class="col-12 mt-5 mb-3">${post.title}</h4>
+        <h5 class="mb-3 font-italic col-12">${post.author}</h5>
+        <p class="col-12">${post.text}</p>
+        <p class="col-12" style="border-bottom: 2px solid black">Id - ${post.id}</p>
+      </div>`;
+  this.postContainer.append(div);
 };

@@ -5,7 +5,7 @@ const startMonitor = document.querySelector('#startMonitor');
 const sendBeats = document.querySelector('#sendBeats');
 
 const monitorMessages = {
-  msg1: 'Monitor will start in: ',
+  msg1: 'App will start in: ',
   msg2: 'Monitoring: ',
   msg3: 'Please, input count of beats',
   val1: 5,
