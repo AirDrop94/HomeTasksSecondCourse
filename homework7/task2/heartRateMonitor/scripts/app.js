@@ -67,7 +67,7 @@ startButton.addEventListener('click', () => {
 });
 
 // Old code
-// eslint-disable-next-line func-names
+// eslint-disable-next-line  func-names
 /* this.start = () => {
   // eslint-disable-next-line no-undef
   this.intervalId = setInterval(() => {
