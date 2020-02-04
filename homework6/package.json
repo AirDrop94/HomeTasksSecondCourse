@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "css": "node-sass src/styles.scss -o dist",
-    "css:prod": "node-sass src/styles.scss -o dist --output-style compressed",
-    "css:watch": "npm run css && node-sass src/styles.scss -wo dist",
+    "css": "node-sass src/styles.scss -o public_html/dist",
+    "css:prod": "node-sass src/styles.scss -o public_html/dist --output-style compressed",
+    "css:watch": "npm run css && node-sass src/styles.scss -wo public_html/dist",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/.bin/http-server ./public_html -a localhost -p 8082 -c-1",
-    "start-json": "./node_modules/.bin/json-server --watch ./public_html/db.json --port 3006"
+    "start": "./node_modules/.bin/http-server  -a localhost -p 8082 -c-1",
+    "start-json": "./node_modules/.bin/json-server --watch public_html/db.json --port 3006"
   },
   "author": "",
   "license": "ISC",

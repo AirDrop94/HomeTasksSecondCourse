@@ -1,0 +1,19 @@
+body {
+    background-color: #86cfda;
+}
+
+#allPost {
+    background-color: black;
+}
+
+#postLoadById {
+    background-color: black;
+}
+
+#addNewPost {
+    background-color: #e0a800;
+}
+
+#deletePostByIdButton {
+    background-color: red;
+}
