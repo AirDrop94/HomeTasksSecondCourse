@@ -7905,7 +7905,7 @@ if (typeof window == void 0 && typeof exports == 'object') {
   exports.Suite = jasmineRequire.Suite;
 }
 
-getJasmineRequireObj().Timer = function() {
+getJasmineRequireObj().Monitor = function() {
   var defaultNow = (function(Date) {
     return function() {
       return new Date().getTime();
