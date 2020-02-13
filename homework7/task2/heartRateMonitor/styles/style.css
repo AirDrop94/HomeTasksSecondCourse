@@ -1,0 +1,26 @@
+body {
+    background-color: #17a2b8;
+    margin-top: 50px;
+}
+
+#startMonitor {
+    background-color: black;
+    color: white;
+    margin-top: 5px;
+}
+
+#sendBeats {
+    background-color: black;
+    color: white;
+    margin-top: 5px;
+}
+
+#resetMonitor {
+    background-color: black;
+    color: red;
+    margin-top: 5px;
+}
+
+#msgAlert {
+    color: black;
+}

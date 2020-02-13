@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+  <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap"
+      rel="stylesheet">
+  <link href="styles/style.css" rel="stylesheet">
+  <title>Weather</title>
+</head>
+<body>
+<main>
+  <div class="container">
+    <h3>Weather for tomorrow</h3>
+    <div class="col-md-4" id="input_container">
+
+      <input value="Please, input coordinates" id="input_coordinates">
+      <br/>
+      <button type="submit" id="send_coordinates_btn">Send coordinates</button>
+    </div>
+    <div class="col-md-4" id="output_container"></div>
+  </div>
+</main>
+<script src="scripts/app.js"></script>
+<script src="scripts/ui.js"></script>
+</body>
+</html>

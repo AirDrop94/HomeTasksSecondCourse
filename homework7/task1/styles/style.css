@@ -1,0 +1,18 @@
+body {
+    margin-top: 200px;
+    background-color: #80bdff;
+}
+
+#input_container {
+    background-color: #ffeeba;
+    border-radius: 5px;
+    border: 2px solid black;
+    padding: 15px;
+}
+
+#output_container {
+    background-color: #138496;
+    border-radius: 5px;
+    border: 2px solid black;
+    padding: 15px;
+}
