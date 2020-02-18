@@ -15,18 +15,17 @@
 </head>
 <body>
 <main>
-  <div class="container">
-    <h3>Weather for tomorrow</h3>
-    <div class="col-md-4" id="input_container">
-
-      <input value="Please, input coordinates" id="input_coordinates">
-      <br/>
-      <button type="submit" id="send_coordinates_btn">Send coordinates</button>
+  <div class="row ml-4 mt-4">
+    <div class="col-sm">
+      <button class="btn btn-primary" id="getButton" type="submit">Get
+        forecast
+      </button>
     </div>
-    <div class="col-md-4" id="output_container"></div>
+  </div>
+  <div class="row d-none ml-4 mt-4" id="container">
+
   </div>
 </main>
 <script src="scripts/app.js"></script>
-<script src="scripts/ui.js"></script>
 </body>
 </html>
