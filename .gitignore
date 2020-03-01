@@ -9,3 +9,4 @@ $cat .gitignore
 *.xml
 _windows
 codestyles
+/homework8/node_modules/
