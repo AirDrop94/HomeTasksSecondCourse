@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png">
+  <link rel="stylesheet" href="/style.css">
+  <title>WORLD NEWS</title>
+</head>
+<body>
+<div class="container all-content">
+  <div class="row">
+    <div class="col-12 mb-4 mt-4 py-3 px-2 header text-center">
+      <h1>WORLD NEWS</h1>
+
+      <ul class="nav navbar navbar-light">
+        <a class="navbar-brand" href="/"><img src="/assets/img/logo.png" alt="News logo" style="width: 100px"></a>
+        <li class="nav-item">
+          <a class="nav-link active" href="#" id="nav-newsline">All news</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="nav-about">About are project</a>
+        </li>
+
+        <form class="form-inline">
+          <input class="form-control mr-sm-4"
+                 id="search-input"
+                 pattern="(.|\s)*\S(.|\s)*"
+                 required
+                 type="search"
+                 placeholder="Search"
+                 aria-label="Search">
+          <button class="btn" type="submit">Search</button>
+        </form>
+
+      </ul>
+
+      <div class="news">
+
+        <script id="products-template" type="x-handlebars-template">​
+        {{#each this}}
+        <div class="card my-2" data-index="{{id}}">
+          <h5 class="card-header text-left">{{name}}</h5>
+          <div class="row no-gutters">
+            <div class="col-4">
+              <img src="{{content.img.url}}" class="card-img img-fluid ml-2 mt-2 m-sm-2 m-lg-3 img-thumbnail"
+                   alt="{{content.img.name}}">
+            </div>
+            <div class="col-lg-6 row-cols-4">
+              <div class="card-body ml-2 text-left">
+                <p class="card-text">{{content.data}}</p>
+                <a href="#" class="btn-more" data-more="{{id}}">More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+        </script>
+
+      </div>
+
+      <div class="single-news d-none">
+
+        <div class="card my-4 text-left">
+          <h5 class="card-header">Featured</h5>
+          <div class="m-4">
+            <p class="full">
+              <img src="/assets/img/img1.png" class="card-img img-large m-3" alt="...">
+
+            </p>
+          </div>
+          <a href="#" class="m-3 back">Back to news line</a>
+        </div>
+      </div>
+
+      <div class="about d-none">
+        <h2 class="mt-3 text-center" style="color: white">About us</h2>
+        <p class="mt-2 p-3 text-justify" style="color: white">
+          Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem
+          ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+          standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
+          to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
+          typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+          sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+          PageMaker including versions of Lorem Ipsum.Lorem ipsum is simply dummy text of the printing and
+          typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when
+          an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived
+          not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+          It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and
+          more recently with desktop publishing software like Aldus PageMaker including versions of Lorem
+          Ipsum.Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+          industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+          electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
+          of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+          like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+        <a href="#" class="m-3 back">Back to news line</a>
+      </div>
+
+      <div class="search-page d-none">
+        <h2 class="text-left">Results: <span>///</span></h2>
+        <div class="results">
+<!--<p>Document does`t exist.</p>-->
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="error-page d-none">
+  <h3>Error 404, content does`t exist</h3>
+  <a href="/">Go to main page</a>
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
+<script src="/bundle.js"></script>
+</body>
+</html>

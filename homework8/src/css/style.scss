@@ -1,0 +1,95 @@
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+body {
+  font-family: Menlo, sans-serif;
+  background: dimgray;
+
+  .search-page {
+    h2 {
+      background-color: maroon;
+      font-size: 3.5rem;
+      font-weight: 600;
+      padding: 10px 30px;
+
+      span {
+        font-weight: 400;
+      }
+    }
+
+    .results > p {
+      margin-top: 100px;
+    }
+  }
+
+  .error-page {
+    position: fixed;
+    background: #333333;
+    top: 20%;
+    left: 25%;
+
+    h3 {
+      font-size: 2.5rem;
+    }
+
+    a {
+      font-size: 1.5rem;
+      color: green;
+    }
+
+  }
+
+  h1 {
+    background-color: firebrick;
+  }
+
+  .card {
+    .card-header {
+      color: white;
+      background: firebrick;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .img-large {
+      max-width: 80%;
+      height: auto;
+      display: block;
+      @media (min-width: 540px) {
+        max-width: 40%;
+        float: left;
+      }
+    }
+
+    p {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .full {
+      text-indent: 30px;
+      white-space: normal;
+      overflow: auto;
+      text-align: justify;
+    }
+  }
+
+  .btn {
+    color: white;
+    background: black;
+  }
+
+  a {
+    color: white;
+  }
+  .card-header{
+    border-radius: 10px;
+  }
+  .card{
+    background: #69b4ee;
+    border-radius: 10px;
+  }
+}
+
+
+
